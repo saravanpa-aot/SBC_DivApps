@@ -36,10 +36,10 @@ RUN ls -R
 RUN rm /web/forms-flow-web/public/logo.svg
 COPY /public/logo.svg /web/forms-flow-web/public/logo.svg
 RUN npm install
-RUN cp -r /web/forms-flow-web/* /app/
+RUN cp --verbose -rf /web/forms-flow-web/* /app/
 Run echo 'after copying all folder  ------------4444------------------------------------------'
 RUN pwd
-RUN ls -R
+RUN ls
 RUN npm run build
 
 FROM docker-remote.artifacts.developer.gov.bc.ca/nginx:1.17 as production-stage
